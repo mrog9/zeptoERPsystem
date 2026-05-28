@@ -7,4 +7,4 @@ The shell will update the most recent version and push branch to github.
 Version 1.0.1
 ---------------------
 
-Problems with the pull request in github actions...
+Problems
