@@ -9,3 +9,6 @@ Version 1.0.1
 
 Resolving github actions issue ... might have to manually open pull request...trying to resolve by 
 taking out pull request from workflow file
+
+now im going to open up pull request manually and keep it open ...
+
