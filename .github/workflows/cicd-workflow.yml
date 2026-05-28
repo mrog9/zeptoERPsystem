@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "feature" , "feature/*" ]
+    branches: [ "feature" , "feature/*" , "feature/*/*" ]
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -61,14 +61,14 @@ jobs:
         run: |
           gh pr create \
             --base main \
-            --head feature-branch \
-            --title "Auto PR for feature-branch" \
+            --head  ${{ github.ref_name }}\
+            --title "Auto PR for ${{ github.ref_name }}" \
             --body "Automatically created PR"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Merge into main
-        run: gh pr merge feature-branch --merge --admin
+        run: gh pr merge ${{ github.ref_name }} --merge --admin
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
            
