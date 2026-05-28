@@ -1,14 +1,4 @@
-Version 1.0.0
---------------------
+No versioning yet...
 
-I am developing my shell script so I can push features to github automatically.
-The shell will update the most recent version and push branch to github.
-
-Version 1.0.1
----------------------
-
-Resolving github actions issue ... might have to manually open pull request...trying to resolve by 
-taking out pull request from workflow file
-
-now im going to open up pull request manually and keep it open ...
+I am just trying to get ci pipeline from local to github actions to work
 
