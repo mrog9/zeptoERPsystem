@@ -7,4 +7,4 @@ The shell will update the most recent version and push branch to github.
 Version 1.0.1
 ---------------------
 
-Going to do something extra tomorrow!
+Going to do something extra today!
