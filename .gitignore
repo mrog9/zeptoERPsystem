@@ -1,3 +1,2 @@
-mostRecentVersion.txt
-push-feature.bat
-.gitignore
+*.txt
+*.bat
