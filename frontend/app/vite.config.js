@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  host: "0.0.0.0",
-  allowedHosts: ["zeptoerpsystem.onrender.com"]
+  server: {
+    host: "0.0.0.0",
+    allowedHosts: ["zeptoerpsystem.onrender.com"]
+  }
 })
