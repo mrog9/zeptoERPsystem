@@ -1,4 +1,4 @@
 FROM node:latest
-COPY . /
-ENTRYPOINT /app
-CMD ["bash", "-c", "node test.js"]
+WORKDIR /app
+COPY . .
+CMD ["node", "test.js"]
