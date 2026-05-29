@@ -1,4 +1,4 @@
 FROM node:latest
-COPY .
+COPY . /
 ENTRYPOINT /app
 RUN node test.js
