@@ -1,4 +1,10 @@
 FROM node:latest
 WORKDIR /app
+
+COPY app/package.json .
+RUN npm install
+
 COPY app/. .
-CMD ["node", "test.js"]
+RUN npm run build
+
+CMD ["npm", "run", "preview"]
