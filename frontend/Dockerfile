@@ -1,4 +1,4 @@
 FROM node:latest
 WORKDIR /app
-COPY . .
+COPY app/. .
 CMD ["node", "test.js"]
