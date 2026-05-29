@@ -1,4 +1,4 @@
 FROM node:latest
 COPY . /
 ENTRYPOINT /app
-RUN node test.js
+CMD ["bash", "-c", "node test.js"]
