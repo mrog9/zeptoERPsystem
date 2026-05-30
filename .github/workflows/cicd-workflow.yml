@@ -27,8 +27,10 @@ jobs:
 
       - name: installing playwright dependencies
         run: |
+          cd zeptotests/playwright
           npm ci
           npx playwright install --with-deps
+          cd ../..
 
       # Runs a set of commands using the runners shell
       - name: Build image and start container
