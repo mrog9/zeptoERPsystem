@@ -12,4 +12,4 @@ test("has btn", async ({page}) => {
   const btn = await page.getByRole('button');
 
   await expect(btn).toBeVisible();
-})();
+})
