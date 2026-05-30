@@ -30,6 +30,7 @@ jobs:
         run: |
           docker build -t frontend_img:latest ./frontend/.
           docker run -p 5173:5173 -d frontend_img:latest
+          sleep 5
 
       - name: playwright tests
         run: |
