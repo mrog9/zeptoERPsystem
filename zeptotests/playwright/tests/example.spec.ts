@@ -7,7 +7,7 @@ test("has btn", async ({page}) => {
 
   // const page = await browser.newPage();
 
-  await page.goto('http://front-cont:80');
+  await page.goto('http://frontend:80');
 
   const btn = await page.getByRole('button');
 
