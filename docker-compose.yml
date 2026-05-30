@@ -3,7 +3,7 @@ services:
   frontend:
 
     build: ./frontend
-    port:
+    ports:
       - "80:80"
 
   playwright:
