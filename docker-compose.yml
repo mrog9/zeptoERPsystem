@@ -9,4 +9,4 @@ services:
   playwright:
 
     build: ./zeptotests
-    depends_on: frontend
+    depends_on: [frontend]
