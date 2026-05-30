@@ -31,7 +31,14 @@ jobs:
           docker build -t frontend_img:latest ./frontend/.
           docker run -d frontend_img:latest
 
-      - name: Test container
+      - name: playwright tests
+        run: |
+          cd zeptotests/playwright
+          npm ci
+          npx playwright install --with-deps
+          npx playwright test
+
+      - name: Test confirmation
         run: echo testing has completed!   
 
   merge:
