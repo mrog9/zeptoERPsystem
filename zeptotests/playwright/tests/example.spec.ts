@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { chromium } from 'playwright';
 
-(async () => {
+test(async () => {
 
   const browser = await chromium.launch();
 
