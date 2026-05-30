@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 import { chromium } from 'playwright';
 
-test(async () => {
+test(async ({page}) => {
 
-  const browser = await chromium.launch();
+  // const browser = await chromium.launch();
 
-  const page = await browser.newPage();
+  // const page = await browser.newPage();
 
   await page.goto('http://localhost:5173');
 
