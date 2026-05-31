@@ -15,15 +15,17 @@ test("has btn", async ({page}) => {
   await expect(createbtn).toBeVisible();
 })
 
-test("shows success on create btn click", async ({page}) => {
+test("create and login", async ({page}) => {
 
+  const customer = "matt1234"
+  
   await page.goto('http://frontend:80');
 
   const createInput = await page.getByPlaceholder('Username', {exact:true});
 
   await expect(createInput).toBeVisible();
 
-  await createInput.fill("matt1234");
+  await createInput.fill(customer);
 
   const createBtn = await page.getByRole('button', {name: "Create"});
 
@@ -35,5 +37,19 @@ test("shows success on create btn click", async ({page}) => {
               .getByRole("heading")
               .filter({hasText: "SUCCESS"}))
               .toBeVisible()
+
+  const signinInput = await page.getByPlaceholder('Enter Username', {exact:true});
+  const signinBtn = await page.getByRole('button', {name: "Login"});
+  await signinInput.fill(customer)
+  await signinBtn.click()
+
+  await expect(page)
+              .toHaveURL(new URLPattern({pathname: '*/searchProducts*'}));
+
+  await expect(page
+              .getByRole("heading")
+              .filter({hasText: customer}))
+              .toBeVisible()
+
 
 })
