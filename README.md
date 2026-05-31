@@ -18,3 +18,5 @@ Adding react login page to frontend (no backend components yet)
 --------------
 
 simple login page was added. now going to put login form into page with button. no page transitions or backend actions
+
+a create account component is also going to be added to the login page
