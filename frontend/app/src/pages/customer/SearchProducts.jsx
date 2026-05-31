@@ -8,7 +8,7 @@ export function SearchProducts(){
 
         <div>
 
-            <h2>WELCOME {location.state.username}!</h2>
+            <h2>WELCOME {location.state.currentUser}!</h2>
 
         </div>
 
