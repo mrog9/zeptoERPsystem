@@ -8,48 +8,33 @@ test("has btn", async ({page}) => {
 
   await page.goto('http://frontend:80');
 
-  const loginbtn = await page.getByRole('button', {name: "Login"});
-  const createbtn = await page.getByRole('button', {name: "Create"});
+  const username = "matt1234"
 
-  await expect(loginbtn).toBeVisible();
-  await expect(createbtn).toBeVisible();
-})
 
-test("create and login", async ({page}) => {
+  const createLink = page.getByRole('link', {name: "Create one"})
+  await expect(createLink).toBeVisible();
+  await createLink.click();
 
-  const customer = "matt1234"
-  
-  await page.goto('http://frontend:80');
+  await expect(page).toHaveURL(new URLPattern({pathname: '*/signup*'}));
 
-  const createInput = await page.getByPlaceholder('Username', {exact:true});
-
-  await expect(createInput).toBeVisible();
-
-  await createInput.fill(customer);
-
-  const createBtn = await page.getByRole('button', {name: "Create"});
-
+  const createBtn = await page.getByRole('button', {name: "Create Account"});
   await expect(createBtn).toBeVisible();
 
+  const createInput = await page.getByPlaceholder('Choose a username', {exact:true});
+  await expect(createInput).toBeVisible();
+  await createInput.fill(username);
   await createBtn.click()
 
-  await expect(page
-              .getByRole("heading")
-              .filter({hasText: "SUCCESS"}))
-              .toBeVisible()
+  const loginBtn = await page.getByRole('button', {name: "Login"});
+  await expect(loginBtn).toBeVisible();
 
-  const signinInput = await page.getByPlaceholder('Enter Username', {exact:true});
-  const signinBtn = await page.getByRole('button', {name: "Login"});
-  await signinInput.fill(customer)
-  await signinBtn.click()
+  const signinInput = await page.getByPlaceholder('Enter your username', {exact:true});
+  await expect(signinInput).toBeVisible();
+  await signinInput.fill(username);
+  await loginBtn.click();
 
-  await expect(page)
-              .toHaveURL(new URLPattern({pathname: '*/searchProducts*'}));
+  await expect(page).toHaveURL(new URLPattern({pathname: '*/searchProducts*'}));
 
-  await expect(page
-              .getByRole("heading")
-              .filter({hasText: customer}))
-              .toBeVisible()
-
-
+  const headerTag = await page.getByRole('heading').filter({hasText: username});
+  await expect(headerTag).toBeVisible();
 })

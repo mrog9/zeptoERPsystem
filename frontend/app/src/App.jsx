@@ -1,20 +1,20 @@
-import { Route, Routes } from "react-router-dom";
-import { LoginPage } from "./pages/LoginPage";
-import { SearchProducts} from "./pages/customer/SearchProducts"
+import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LoginForm from './components/LoginForm'
+import SignupForm from './components/SignupForm'
+import { SearchProducts } from './pages/customer/SearchProducts'
+import './App.css'
 
 function App() {
-  
   return (
-
-    <Routes>
-
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/searchProducts" element={<SearchProducts />} />
-
-    </Routes>
-
-  );
-
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/searchProducts" element={<SearchProducts />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App

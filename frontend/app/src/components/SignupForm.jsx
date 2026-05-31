@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import '../styles/Auth.css'
 
-function LoginForm() {
+function SignupForm() {
   const [username, setUsername] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate()
@@ -15,25 +15,30 @@ function LoginForm() {
       return
     }
 
-    // Simulate login
-    console.log('Logging in with username:', username)
-    setError('')
+    if (username.length < 3) {
+      setError('Username must be at least 3 characters long')
+      return
+    }
 
-    // Redirect to dashboard (or wherever after login)
-    navigate('/searchProducts', {state: {currentUser: username}})
+    // Simulate account creation
+    console.log('Creating account with username:', username)
+    setError('')
+    
+    // Redirect to dashboard or login
+    navigate('/')
   }
 
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1>Login</h1>
+        <h1>Create Account</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
             <input
               id="username"
               type="text"
-              placeholder="Enter your username"
+              placeholder="Choose a username"
               value={username}
               onChange={(e) => {
                 setUsername(e.target.value)
@@ -46,16 +51,16 @@ function LoginForm() {
           {error && <div className="error-message">{error}</div>}
           
           <button type="submit" className="btn btn-primary">
-            Login
+            Create Account
           </button>
         </form>
         
         <p className="auth-link">
-          Don't have an account? <Link to="/signup">Create one</Link>
+          Already have an account? <Link to="/">Login</Link>
         </p>
       </div>
     </div>
   )
 }
 
-export default LoginForm
+export default SignupForm
