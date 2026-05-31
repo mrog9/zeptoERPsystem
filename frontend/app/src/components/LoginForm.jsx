@@ -7,7 +7,7 @@ export function LoginForm({}){
             <form id="loginForm">
 
                 <input id="usernameId" autoComplete="off" type="text" placeholder="Enter Username"></input>
-                <button id="signinId" type="button">Sign In</button>
+                <button id="loginId" type="button">Login</button>
 
             </form>
 

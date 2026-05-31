@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { chromium } from 'playwright';
 
 test("has btn", async ({page}) => {
 
@@ -9,7 +8,9 @@ test("has btn", async ({page}) => {
 
   await page.goto('http://frontend:80');
 
-  const btn = await page.getByRole('button');
+  const loginbtn = await page.getByRole('button', {name: "Login"});
+  const createbtn = await page.getByRole('button', {name: "Create"});
 
-  await expect(btn).toBeVisible();
+  await expect(loginbtn).toBeVisible();
+  await expect(createbtn).toBeVisible();
 })
