@@ -1,28 +1,18 @@
 import { CreateUser } from "../components/CreateUser.jsx";
-import { LoginForm } from "../components/LoginForm.jsx"
+import { LoginForm } from "../components/LoginForm.jsx";
+import { useState, useEffect } from "react";
 
 export function LoginPage(){
+
+  const [loginSuccess, setLoginSuccess] = useState(false);
+  const [usernameState, setUsernameState] = useState("");
   
   return (
     <div>
-      <div id="LoginSection">
 
-        <h1>WELCOME TO ZEPTO GROCERIES!</h1>
+        <LoginForm setLoginSuccess={setLoginSuccess} usernameState={usernameState}/>
 
-        <h2> SIGN IN TO CONTINUE</h2>
-
-        <LoginForm />
-
-      </div>
-
-      <div id="CreateUserSection">
-
-        <h2>OR CREATE AN ACCOUNT</h2>
-
-        <CreateUser />
-
-      </div>
-
+        <CreateUser/>
 
     </div>
   );
