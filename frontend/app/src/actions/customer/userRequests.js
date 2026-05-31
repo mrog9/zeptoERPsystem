@@ -18,3 +18,11 @@ async function newUserRequest(username){
 
 
 }
+
+export function authorizeUser(username, setLoginSuccess){
+
+    console.log(username);
+
+    setLoginSuccess(true);
+
+} 
