@@ -23,7 +23,18 @@ test("has btn", async ({page}) => {
   const createInput = await page.getByPlaceholder('Choose a username', {exact:true});
   await expect(createInput).toBeVisible();
   await createInput.fill(username);
-  await createBtn.click()
+  await createBtn.click();
+
+  await expect(page.getByText("Your account is now active!")).toBeVisible({
+    timeout: 10000
+  });
+
+  const body = await page.locator("body").innerText();
+
+  console.log(body);
+
+  const loginLink = await page.getByRole("link");
+  await loginLink.click()
 
   const loginBtn = await page.getByRole('button', {name: "Login"});
   await expect(loginBtn).toBeVisible();

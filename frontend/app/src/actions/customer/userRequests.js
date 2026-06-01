@@ -1,28 +1,40 @@
-export function validateUsername(username, setCreateStatus){
+export async function newUserRequest(username){
 
-    const hasValidLength = username.length <= 10 && username.length >= 5;
-    const hasValidChars = /^[A-za-z0-9]+/.test(username);
+    const url = "/backend/newuser";
 
-    if (hasValidLength && hasValidChars){
+    const message = {success: false, error: ""};
 
-        setCreateStatus(true);
-        newUserRequest(username);
+    try{
+
+        const response = await fetch(url, {
+
+            method: "POST",
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+            body: JSON.stringify({username: username})
+
+        });
+
+        const data = await response.json()
+
+        if (!data.exists){
+
+            message.success = true;
+
+        }
+
+    }catch(error){
+
+        console.log(error);
+
+        message.error = error;
 
     }
 
-}
-
-async function newUserRequest(username){
-
-    console.log(username);
-
+    return message
 
 }
 
-export function authorizeUser(username, setLoginSuccess){
-
-    console.log(username);
-
-    setLoginSuccess(true);
-
-} 

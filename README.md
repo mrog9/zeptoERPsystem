@@ -21,4 +21,10 @@ simple login page was added. now going to put login form into page with button. 
 
 a create account component is also going to be added to the login page
 
-about to incorporate copilot suggestions into my code for frontend
+about to incorporate copilot suggestions into my code for frontend login and signup page
+
+2.2.0
+---------------
+
+am going to develop backend page that handles request from frontend signup page.. eventually there will be a service backend talks to which will insert 
+new user into users table
