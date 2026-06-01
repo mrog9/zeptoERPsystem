@@ -30,8 +30,11 @@ function SignupForm() {
 
   return (
     <div className="auth-container">
+      <div className="auth-hero">
+        <h1 className="auth-title">Join Zepto Groceries — Sign up for Freshness in a Zepto</h1>
+        <h4 className="auth-tagline">Create your account and get groceries in a flash</h4>
+      </div>
       <div className="auth-card">
-        <h1>Create Account</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
