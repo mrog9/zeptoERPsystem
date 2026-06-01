@@ -4,7 +4,7 @@ import { addNewUser } from "./requests/userRequests.js";
 
 const app = express();
 app.use(express.json());
-const PORT = 3000;
+const ENV_PORT = process.env.PORT || 3000;
 
 app.use(cors({
 
@@ -15,7 +15,7 @@ app.use(cors({
 
 app.post("/newuser", addNewUser);
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(ENV_PORT, "0.0.0.0", () => {
 
     console.log(`Server running....`);
 
