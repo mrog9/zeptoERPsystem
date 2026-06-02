@@ -6,12 +6,10 @@ services:
     expose:
       - "3000"
 
-  frontend:
+  nginx:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-      args:
-        NGINX_ENV: local
     depends_on: [backend]
     ports:
       - "80:80"
@@ -19,6 +17,6 @@ services:
   playwright:
 
     build: ./zeptotests
-    depends_on: [frontend]
+    depends_on: [nginx]
 
   
