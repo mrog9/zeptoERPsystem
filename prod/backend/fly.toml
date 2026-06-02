@@ -10,7 +10,7 @@ primary_region="ewr"
  wait_timeout="5m"
 
 [env]
-  PORT = "3000"
+ PORT = "3000"
 
 [[services]]
  internal_port = 3000

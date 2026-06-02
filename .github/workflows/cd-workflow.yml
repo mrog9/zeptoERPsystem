@@ -1,0 +1,25 @@
+name: CD
+
+on:
+  pull-request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+
+  deploy-backend:
+
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fly cli
+        uses: superfly/flyctl-actions/setup-flyctl@main
+      
+      - name: Deploy
+        run: flyctl deploy --remote-only
+        env: 
+          FLY_API_TOKEN: $ {{ secrets.FLY_API_TOKEN }}
