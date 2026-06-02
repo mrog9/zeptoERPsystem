@@ -103,8 +103,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy 
+      - name: Fly cli
         uses: superfly/flyctl-actions/setup-flyctl@master
+      
+      - name: Deploy
         run: flyctl deploy --remote-only
         env: 
           FLY_API_TOKEN: $ {{ secrets.FLY_API_TOKEN }}
