@@ -1,6 +1,6 @@
 export async function newUserRequest(username){
 
-    const url = "/backend/newuser";
+    const url = "http://backend:3000/newuser"
 
     const message = {success: false, error: ""};
 
