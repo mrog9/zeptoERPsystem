@@ -1,6 +1,6 @@
 app="zepto-service"
 
-primary_region="ord"
+primary_region="ewr"
 
 [build]
     dockerfile = "Dockerfile"
