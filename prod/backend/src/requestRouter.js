@@ -4,11 +4,11 @@ import { addNewUser } from "./requests/userRequests.js";
 
 const app = express();
 app.use(express.json());
-const ENV_PORT = process.env.PORT
+const ENV_PORT = process.env.PORT || 3000
 
 app.use(cors({
 
-    origin: [FRONT_URL],
+    origin: ["https://zeptoerpsystem.onrender.com"],
     methods: ['POST', 'GET']
 
 }))
