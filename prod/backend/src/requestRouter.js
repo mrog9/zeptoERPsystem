@@ -4,8 +4,7 @@ import { addNewUser } from "./requests/userRequests.js";
 
 const app = express();
 app.use(express.json());
-const ENV_PORT = 8080;
-const FRONT_URL = process.env.FRONT_URL
+const ENV_PORT = process.env.PORT
 
 app.use(cors({
 
