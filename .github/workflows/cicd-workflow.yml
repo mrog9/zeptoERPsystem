@@ -32,7 +32,25 @@ jobs:
           docker compose down
 
       - name: Test confirmation
-        run: echo testing has completed!   
+        run: echo testing has completed!
+
+  copy-build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Copy static files
+        run: |
+          docker build -t frontend-build prod/frontend/.
+          docker create --name tempbuilder frontend-build
+          docker cp tempbuilder:/react_app/dist/ prod/frontend/dist
+          docker rm tempbuilder
+
+      - name: Copy confirmation
+        run: echo copying has completed!  
 
   merge:
 

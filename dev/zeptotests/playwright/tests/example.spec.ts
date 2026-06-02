@@ -6,7 +6,7 @@ test("has btn", async ({page}) => {
 
   // const page = await browser.newPage();
 
-  await page.goto('http://frontend:80');
+  await page.goto('http://nginx:80');
 
   const username = "matt1234"
 

@@ -8,7 +8,7 @@ const ENV_PORT = process.env.PORT || 3000;
 
 app.use(cors({
 
-    origin: ["http://frontend:80", "https://zeptoerpsystem.onrender.com"],
+    origin: ["http://nginx:80"],
     methods: ['POST', 'GET']
 
 }))
