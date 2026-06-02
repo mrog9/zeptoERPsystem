@@ -1,0 +1,29 @@
+app="zepto-service"
+
+primary_region="ord"
+
+[build]
+    dockerfile = "Dockerfile"
+
+[deploy]
+    strategy="immediate"
+    wait_timeout="5m"
+
+[env]
+  PORT = "3000"
+
+[[services]]
+  internal_port = 3000
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
