@@ -1,31 +1,65 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { newUserRequest } from '../actions/customer/userRequests'
 import '../styles/Auth.css'
 
 function SignupForm() {
   const [username, setUsername] = useState('')
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if (success){
+
+      setError("Account has already been created")
+
+    }else{
     
-    if (!username.trim()) {
-      setError('Username is required')
-      return
+      if (!username.trim()) {
+        setError('Username is required')
+        return
+      }
+
+      if (username.length < 5 || username.length > 10) {
+        setError('Username must between 5 and 10 characters long')
+        return
+      }
+
+      // Simulate account creation
+      console.log('Creating account with username:', username)
+
+      newUserRequest(username)
+      .then((resp) => {
+
+        console.log(resp)
+
+        if (!resp.error){
+
+          if (!resp.success){
+
+            setError('Username already exists.')
+            return
+
+          }else{
+
+            setSuccess("Your account is now active!")
+            setError('')
+
+          }
+        }else{
+
+          setError('System error. Please try again later.')
+          return
+
+        }
+
+
+      })
     }
 
-    if (username.length < 3) {
-      setError('Username must be at least 3 characters long')
-      return
-    }
-
-    // Simulate account creation
-    console.log('Creating account with username:', username)
-    setError('')
-    
-    // Redirect to dashboard or login
-    navigate('/')
   }
 
   return (
@@ -52,6 +86,7 @@ function SignupForm() {
           </div>
           
           {error && <div className="error-message">{error}</div>}
+          {success && <div className="success-message">{success}</div>}
           
           <button type="submit" className="btn btn-primary">
             Create Account
