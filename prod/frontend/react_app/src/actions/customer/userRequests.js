@@ -1,6 +1,6 @@
 export async function newUserRequest(username){
 
-    const url = "https://zeptoerpsystem.fly.dev/newuser"
+    const url = "https://zeptoerpsystem.fly.dev/newuser";
     const message = {success: false, error: ""};
 
     try{
@@ -17,11 +17,16 @@ export async function newUserRequest(username){
 
         });
 
-        const data = await response.json()
+        const data = await response.json();
 
         if (!data.exists){
 
             message.success = true;
+
+        }else{
+
+            const raw = await response.text();
+            console.log(raw);
 
         }
 
@@ -33,7 +38,7 @@ export async function newUserRequest(username){
 
     }
 
-    return message
+    return message;
 
 }
 
