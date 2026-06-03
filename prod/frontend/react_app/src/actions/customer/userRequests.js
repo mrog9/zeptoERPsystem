@@ -1,7 +1,6 @@
 export async function newUserRequest(username){
 
-    const url = "http://backend:3000/newuser"
-
+    const url = "https://zeptoerpsystem.fly.dev/"
     const message = {success: false, error: ""};
 
     try{
