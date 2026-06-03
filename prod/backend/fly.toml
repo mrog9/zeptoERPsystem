@@ -1,13 +1,13 @@
-app="zepto-service"
+app = "zeptoerpsystem"
 
-primary_region="ewr"
+primary_region = "ewr"
 
 [build]
  dockerfile = "Dockerfile"
 
 [deploy]
- strategy="immediate"
- wait_timeout="5m"
+ strategy = "immediate"
+ wait_timeout = "5m"
 
 [env]
  PORT = "3000"
