@@ -29,4 +29,5 @@ about to incorporate copilot suggestions into my code for frontend login and sig
 am going to develop backend page that handles request from frontend signup page.. eventually there will be a service backend talks to which will insert 
 new user into users table
 
-i am trying to use one cloud service for backend and another service for frontend..
+i am trying to use one cloud service for backend and another service for frontend...
+doesnt seem to be triggerd by auto merging so im going to open up a pull request manually and see if it triggers workflow
